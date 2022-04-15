@@ -92,6 +92,39 @@ resource "helm_release" "mushop" {
     value = var.oda_user_init_message
   }
 
+  set {
+    name  = "loganalytics.enabled"
+    value = var.loganalytics_enabled
+  }
+
+  set {
+    name  = "loganalytics.ociLALogGroupID"
+    value = var.log_analytics_log_group_id
+  }
+
+  set {
+    name  = "loganalytics.image.url"
+    value = var.fluentd_image_url
+  }
+
+  set {
+    name  = "loganalytics.ociLANamespace"
+    value = data.oci_objectstorage_namespace.ns.namespace
+  }
+
+  set {
+    name  = "loganalytics.kubernetesClusterID"
+    value = oci_containerengine_cluster.oke_cluster[0].id
+  }
+
+  set {
+    name  = "loganalytics.kubernetesClusterName"
+    value = oci_containerengine_cluster.oke_cluster[0].name
+  }
+
+  # TODO oci.configFiles.config .oci file
+  # TODO oci.configFiles.config oci.pem file
+
   depends_on = [helm_release.ingress_nginx, helm_release.cert_manager] # Ugly workaround because of the oci pvc provisioner not be able to wait for the node be active and retry.
 
   timeout = 500

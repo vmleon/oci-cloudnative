@@ -88,3 +88,9 @@ oda_uri               = ""
 oda_channel_id        = ""
 oda_channel_secret    = ""
 oda_user_init_message = ""
+
+
+## Logging Analytics
+loganalytics_enabled = false
+fluentd_image_url = ""
+log_analytics_log_group_id = ""

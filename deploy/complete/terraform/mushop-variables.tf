@@ -171,3 +171,18 @@ variable "oda_user_init_message" {
   default     = ""
   description = "Oracle Digital Assistant initial hidden user message. Makes the Digital Assistant proactive. e.g.: Trending Today"
 }
+
+variable "loganalytics_enabled" {
+  default     = false
+  description = "Enables the OCI Logging Analytics, includes fluentd log ingestion."
+}
+
+variable "fluentd_image_url" {
+  default = ""
+  description = "Fluend Image for OKE and Logging Analytics"
+}
+
+variable "log_analytics_log_group_id" {
+  default = ""
+  description = "Logging Analytics Log Group ID"
+}

@@ -58,6 +58,17 @@ nats:
 user:
   enabled: true
 
+loganalytics:
+  enabled: true
+  namespace: kube-system
+  image:
+    url:
+  ociLANamespace:
+  ociLALogGroupID:
+  kubernetesClusterID:
+  kubernetesClusterName:
+
+
 secrets:
   streams:
     streamId: 

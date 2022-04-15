@@ -43,3 +43,6 @@ dependencies:
   - name: nats
     version: 0.1.0
     condition: nats.enabled
+  - name: loganalytics
+    version: 1.0.1
+    condition: loganalytics.enabled
